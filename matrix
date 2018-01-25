@@ -1,0 +1,111 @@
+#!/biin/bash -e
+
+#Author:  Jonathan Ingram
+#Date:  1/29/18
+#Assignment 1
+
+cp matrix matrix_backup
+
+#TMP = "${@:2}$"
+trap "rm -f $TMP; echo 'CTRL + C received , exiting'; exit 1" INT HUP TERM
+TMP = 
+
+i = 0
+function dims(){
+#	$1 "${@:2}"
+
+	read myLine
+	if test $# -gt 1
+	then
+		echo "Error" 
+	else 
+			
+		echo "There was an error." 1>&2
+		exit 1
+	fi
+} 
+
+function transpose(){
+#This is from lecture 1.4
+	read myLine
+	if test $myLine -ne 0
+	then
+		for i in $myLine
+		do
+			echo "i is: $i"
+		done
+	else
+		echo "There was an error."
+		exit 1
+	fi
+	
+	exit 0
+
+}
+
+function mean(){
+#lecture 1.5
+
+	read myLine
+	if test $myLine -ne 0
+	then
+		l_num = 0
+		while read myLine
+		do
+			sum = 0
+			count = 0
+			mean = 0
+			l_num = `expr $l_num + 1`
+			echo "Processig line $l_num: $$myLine"
+
+			for i in $myLine
+			do
+				number = $i
+				count = `expr $count + 1`
+				sum = `expr $sum + $number`
+		done
+
+			mean = `expr $sum/$count`
+			echo "The mean of the matrix is: $mean"
+		done < $1
+	else
+		echo "There was an error."
+		exit 1
+	fi
+
+	exit 0
+}
+
+function add(){
+
+	read myLine
+	if test $myLine -ne 0
+	then
+		sum_1 = "m1"
+		sum_2 = "m2"
+		sum = 0
+		for i in $myLine
+			 
+
+	else
+		echo "There was an error."
+		exit 1
+	fi
+
+	exit 0
+
+}
+
+
+function multiply(){
+	read myLine
+	if test $myLine -ne 0
+	then
+
+	else
+		echo "There was an error."
+		exit 1
+	fi
+
+	exit 0
+}
