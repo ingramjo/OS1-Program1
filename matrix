@@ -8,7 +8,7 @@ cp matrix matrix_backup
 
 #TMP = "${@:2}$"
 trap "rm -f $TMP; echo 'CTRL + C received , exiting'; exit 1" INT HUP TERM
-TMP = 
+TMP = $1 {@:2}$ 
 
 i = 0
 function dims(){
